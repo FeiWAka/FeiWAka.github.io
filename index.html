@@ -89,8 +89,15 @@
     background:var(--card); border:1px solid var(--border); border-radius:14px;
     padding:24px; text-align:center; margin-top:10px;
   }
-  .contact a{color:var(--blue); text-decoration:none; margin:0 12px; font-size:.92rem;}
-  .contact a:hover{text-decoration:underline;}
+  .contact{display:flex; flex-wrap:wrap; justify-content:center; gap:14px;}
+  .contact-item{
+    background:#fbfdff; border:1px solid var(--border); border-radius:10px;
+    padding:12px 22px; min-width:150px;
+  }
+  .contact-item .ci-label{font-size:.72rem; color:var(--sub); margin-bottom:2px;}
+  .contact-item .ci-value{font-size:.92rem; font-weight:700; color:var(--ink);}
+  .contact-item a.ci-value{color:var(--blue); text-decoration:none;}
+  .contact-item a.ci-value:hover{text-decoration:underline;}
   footer{text-align:center; color:#94a3b8; font-size:.78rem; padding:40px 0 30px;}
   @media (max-width:640px){
     .hero{padding-top:110px; justify-content:center; text-align:center;}
@@ -171,9 +178,18 @@
   <section id="contact">
     <h2 class="sec-title">📮 联系我</h2>
     <div class="contact">
-      <a href="mailto:你的邮箱@example.com">📧 邮箱</a>
-      <a href="https://github.com/你的GitHub用户名">🐙 GitHub</a>
-      <a href="https://space.bilibili.com/你的uid">📺 B站</a>
+      <div class="contact-item">
+        <div class="ci-label">📧 邮箱</div>
+        <a class="ci-value" href="mailto:liyufei_0912@qq.com">liyufei_0912@qq.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">💬 QQ</div>
+        <div class="ci-value">2064405263</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">💬 微信</div>
+        <div class="ci-value">LYF060912G</div>
+      </div>
     </div>
   </section>
 
