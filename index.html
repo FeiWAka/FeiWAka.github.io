@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>菲菲 · 个人主页</title>
+<style>
+  :root{
+    --bg:#f6f8fb; --card:#ffffff; --border:#e2e8f0;
+    --ink:#1e293b; --sub:#64748b;
+    --blue:#2563eb; --green:#10b981; --amber:#d97706; --purple:#8b5cf6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+    line-height:1.7;
+  }
+  /* 顶部导航 */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(255,255,255,.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:960px; margin:0 auto; padding:12px 20px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .nav-logo{font-weight:800; color:var(--blue); font-size:1.1rem;}
+  .nav-links a{color:var(--sub); text-decoration:none; margin-left:22px; font-size:.9rem;}
+  .nav-links a:hover{color:var(--blue);}
+  /* 主体容器 */
+  .wrap{max-width:960px; margin:0 auto; padding:0 20px;}
+  section{padding:70px 0 20px;}
+  /* Hero */
+  .hero{display:flex; align-items:center; gap:32px; padding:130px 0 30px; flex-wrap:wrap;}
+  .avatar{
+    width:130px; height:130px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg,#2563eb,#10b981);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:3rem; font-weight:800;
+    box-shadow:0 8px 24px rgba(37,99,235,.25);
+  }
+  .hero-text{flex:1; min-width:260px;}
+  .hero-text h1{font-size:2rem; margin-bottom:6px;}
+  .hero-text .tagline{color:var(--sub); font-size:1.02rem; margin-bottom:12px;}
+  .hero-text p{color:var(--sub); font-size:.92rem; max-width:520px;}
+  .badges{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;}
+  .badge{
+    background:#fff; border:1px solid var(--border); border-radius:99px;
+    padding:4px 14px; font-size:.78rem; color:var(--sub);
+  }
+  .badge.b{color:var(--blue); border-color:#bfdbfe; background:#eff6ff;}
+  .badge.g{color:var(--green); border-color:#a7f3d0; background:#ecfdf5;}
+  .badge.p{color:var(--purple); border-color:#ddd6fe; background:#f5f3ff;}
+  /* 区块标题 */
+  .sec-title{font-size:1.3rem; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .sec-title::after{content:""; flex:1; height:1px; background:var(--border);}
+  /* 项目卡片 */
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;}
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:20px; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(15,23,42,.08);}
+  .card .emoji{font-size:1.6rem;}
+  .card h3{font-size:1.02rem; margin:8px 0 6px;}
+  .card p{font-size:.85rem; color:var(--sub); margin-bottom:10px;}
+  .card .status{
+    display:inline-block; font-size:.72rem; font-weight:700;
+    padding:2px 10px; border-radius:99px;
+  }
+  .st-doing{background:var(--amber); color:#fff;}
+  .st-plan{background:#e2e8f0; color:#475569;}
+  .st-done{background:var(--green); color:#fff;}
+  .card .links{margin-top:10px; font-size:.82rem;}
+  .card .links a{color:var(--blue); text-decoration:none; margin-right:14px;}
+  .card .links a:hover{text-decoration:underline;}
+  /* 技能 */
+  .skills{display:flex; flex-wrap:wrap; gap:10px;}
+  .skill{
+    background:#fff; border:1px solid var(--border); border-radius:10px;
+    padding:8px 16px; font-size:.86rem;
+  }
+  .skill b{color:var(--blue);}
+  /* 联系 */
+  .contact{
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:24px; text-align:center; margin-top:10px;
+  }
+  .contact a{color:var(--blue); text-decoration:none; margin:0 12px; font-size:.92rem;}
+  .contact a:hover{text-decoration:underline;}
+  footer{text-align:center; color:#94a3b8; font-size:.78rem; padding:40px 0 30px;}
+  @media (max-width:640px){
+    .hero{padding-top:110px; justify-content:center; text-align:center;}
+    .nav-links a{margin-left:14px; font-size:.82rem;}
+    section{padding:50px 0 10px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">🚀 菲菲</span>
+    <div class="nav-links">
+      <a href="#about">关于我</a>
+      <a href="#projects">项目</a>
+      <a href="#skills">技能</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- 首屏 -->
+  <header class="hero" id="about">
+    <div class="avatar">菲</div>
+    <div class="hero-text">
+      <h1>你好,我是菲菲 👋</h1>
+      <div class="tagline">机械 / 嵌入式 / 视觉 · 工创大赛选手</div>
+      <p>喜欢把想法做成能跑、能动、能解决问题的机器人。目前在备战全国大学生工程实践与创新能力大赛,正在捣鼓一辆全自主智能搬运小车。</p>
+      <div class="badges">
+        <span class="badge b">🔧 机械设计</span>
+        <span class="badge g">🤖 嵌入式</span>
+        <span class="badge p">👁️ 机器视觉</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 项目 -->
+  <section id="projects">
+    <h2 class="sec-title">📦 我的项目</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="emoji">🤖</div>
+        <h3>智能搬运机器人</h3>
+        <p>工创大赛 · 智能搬运赛项:树莓派主控 + 麦克纳姆轮四驱 + 五杆并联机械臂,视觉识别物料与圆环,全自主码垛搬运。</p>
+        <span class="status st-doing">进行中</span>
+      </div>
+      <div class="card">
+        <div class="emoji">🖐️</div>
+        <h3>绳驱灵巧机械手</h3>
+        <p>腱绳驱动仿人机械手,3D 打印结构 + ESP32 驱动,目标是低成本、高自由度的灵巧抓取。</p>
+        <span class="status st-doing">进行中</span>
+      </div>
+      <div class="card">
+        <div class="emoji">✨</div>
+        <h3>更多作品</h3>
+        <p>正在整理往期课程设计、比赛作品与开源代码,敬请期待。</p>
+        <span class="status st-plan">规划中</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 技能 -->
+  <section id="skills">
+    <h2 class="sec-title">🛠️ 技能栈</h2>
+    <div class="skills">
+      <span class="skill"><b>机械</b> · SolidWorks / 3D打印 / 激光切割</span>
+      <span class="skill"><b>嵌入式</b> · 树莓派 / ESP32 / STM32</span>
+      <span class="skill"><b>编程</b> · Python / C++</span>
+      <span class="skill"><b>视觉</b> · OpenCV / 颜色识别 / 二维码</span>
+      <span class="skill"><b>硬件</b> · 电机驱动 / 传感器 / 电路焊接</span>
+    </div>
+  </section>
+
+  <!-- 联系 -->
+  <section id="contact">
+    <h2 class="sec-title">📮 联系我</h2>
+    <div class="contact">
+      <a href="mailto:你的邮箱@example.com">📧 邮箱</a>
+      <a href="https://github.com/你的GitHub用户名">🐙 GitHub</a>
+      <a href="https://space.bilibili.com/你的uid">📺 B站</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2026 菲菲 · 由 GitHub Pages 免费托管 · 白色简约风格</footer>
+</body>
+</html>
